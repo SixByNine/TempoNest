@@ -283,7 +283,13 @@ void TNtextOutput(pulsar *psr, int npsr, int newpar, long double *Tempo2Fit, voi
 		  else if (doTimeMargin==2) {
 
 				printf("M");
-			}
+			} else if (doTimeMargin ==3) {
+                if(i==param_brake || (i==param_f && k > 1)){
+				printf("Y");
+                } else {
+				printf("M");
+                }
+            }
 
 
 		  printf("\n");
@@ -1216,7 +1222,15 @@ void TNtextOutput(pulsar *psr, int npsr, int newpar, long double *Tempo2Fit, voi
 			}
 		      if (psr[p].param[i].fitFlag[k]==1)
 			{
-			  fprintf(fout2," 1 ");
+                if (doTimeMargin ==3) {
+                    if(i==param_brake || (i==param_f && k > 1)){
+                        fprintf(fout2," 0 ");
+                    } else {
+                        fprintf(fout2," 1 ");
+                    }
+                } else {
+                    fprintf(fout2," 1 ");
+                }
 			  if (i==param_raj)
 			    {
 			      if (psr[p].param[i].err[k]>1e-12) fprintf(fout2," %-25.20Lf",psr[p].param[i].err[k]*12.0*60.0*60.0/M_PI);

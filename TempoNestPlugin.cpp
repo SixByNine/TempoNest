@@ -2576,9 +2576,18 @@ extern "C" int graphicalInterface(int argc, char **argv,
 				TempoFitNums[paramsfitted][1]=k;	
 
 				if(strcasecmp(psr[0].param[p].shortlabel[0],"F0")== 0){
-					if(doTimeMargin != 0)TempoPriors[paramsfitted][2]=1;
+					if(doTimeMargin == 1) TempoPriors[paramsfitted][2]=1;
 				}
 				if(doTimeMargin == 2)TempoPriors[paramsfitted][2]=1;				 
+                if(doTimeMargin == 3){
+                    // MKEITH MODE!
+                    if(p==param_brake || (p==param_f && k > 1)){
+                        // full fit
+                    } else {
+                        // marginalise
+                        TempoPriors[paramsfitted][2]=1;
+                    }
+                }
 
 
 				paramsfitted++;
