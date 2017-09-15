@@ -3121,7 +3121,7 @@ extern "C" int graphicalInterface(int argc, char **argv,
 		Dpriors[pcount][1]=2*M_PI;
 		pcount++;
 		Dpriors[pcount][0]=0;
-		Dpriors[pcount][1]=2;//log10(numRedCoeff);
+		Dpriors[pcount][1]=4;//log10(numRedCoeff);
        	 	pcount++;
 	}      
 		

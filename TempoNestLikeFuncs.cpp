@@ -2170,6 +2170,7 @@ double  NewLRedMarginLogLike(int &ndim, double *Cube, int &npars, double *Derive
 
 	if(((MNStruct *)globalcontext)->incsinusoid == 1){
 		double sineamp=pow(10.0,Cube[pcount]);
+        uniformpriorterm += log(sineamp);                           //add this for uniform prior.
 		pcount++;
 		double sinephase=Cube[pcount];
 		pcount++;
