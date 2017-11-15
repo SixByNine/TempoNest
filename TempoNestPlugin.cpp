@@ -2713,7 +2713,6 @@ extern "C" int graphicalInterface(int argc, char **argv,
 
 
 
-/*
 //	printf("Check NG: %i %i\n", incNGJitter, ndims );
 	if(incNGJitter ==1){
 		//printf("Calling\n");
@@ -2765,7 +2764,6 @@ extern "C" int graphicalInterface(int argc, char **argv,
 		MNS->incNGJitter=numNGJitter;
 	}
 
-*/
 	
 	//return 0;
 	context=MNS;
