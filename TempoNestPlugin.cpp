@@ -2581,11 +2581,25 @@ extern "C" int graphicalInterface(int argc, char **argv,
 				if(doTimeMargin == 2)TempoPriors[paramsfitted][2]=1;				 
                 if(doTimeMargin == 3){
                     // MKEITH MODE!
-                    if(p==param_brake || (p==param_f && k > 1)){
-                        // full fit
-                    } else {
-                        // marginalise
-                        TempoPriors[paramsfitted][2]=1;
+                    switch(p) {
+                        case param_f:
+                            if (k > 1) {
+                            // full fit
+                            } else {
+                                TempoPriors[paramsfitted][2]=1;
+                            }
+                            break;
+                        case param_brake:
+                        case param_px:
+                        case param_pmra:
+                        case param_pmdec:
+                            // full fit
+                            break;
+
+                        default:
+                            // marginalise
+                            TempoPriors[paramsfitted][2]=1;
+                            break;
                     }
                 }
 

@@ -284,7 +284,7 @@ void TNtextOutput(pulsar *psr, int npsr, int newpar, long double *Tempo2Fit, voi
 
 				printf("M");
 			} else if (doTimeMargin ==3) {
-                if(i==param_brake || (i==param_f && k > 1)){
+                if(i==param_brake || (i==param_f && k > 1) || i==param_px || i==param_pmra || i==param_pmdec){
 				printf("Y");
                 } else {
 				printf("M");
