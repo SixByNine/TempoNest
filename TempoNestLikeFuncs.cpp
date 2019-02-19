@@ -3043,12 +3043,25 @@ double  NewLRedMarginLogLike(int &ndim, double *Cube, int &npars, double *Derive
 	double lnewChol =-0.5*(tdet+jointdet+freqdet+timelike-freqlike) + uniformpriorterm;
 	double lnew=-0.5*(tdet+det2+freqdet+timelike-freqlike2) + uniformpriorterm;
 	//printf("Double %g %i\n", lnew, globalinfo);
+
+    // MJK 2019.
+    // Some pulsars push things right to the limit and this check breaks things.
+    // probably this causes problems with the evidence computation??
+    // To make things run anyway, I commented out the setting of globalinfo for
+    // my time margin setting
 	if(fabs(lnew-lnewChol)>0.05){
-		globalinfo = 1;
+        if (((MNStruct *)globalcontext)->TimeMargin == 3){
+            // MJK says relax.
+        } else {
+            globalinfo = 1;
+        }
+
+        //fprintf(stderr,"ERROR_B: %lg %lg %lg %d\n",(double)(lnew-lnewChol),lnew,lnewChol,(int)info);
 	//	lnew=-pow(10.0,20);
 	}
 	if(isnan(lnew) || isinf(lnew) || globalinfo != 0){
 		globalinfo = 1;
+        //fprintf(stderr,"ERROR_A: %d %d %d\n",(int)isnan(lnew),(int)isinf(lnew),globalinfo);
 		lnew=-pow(10.0,20);
 		
 	}

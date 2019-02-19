@@ -159,7 +159,8 @@ void setupparams(char *ConfigFileName, int &useGPUS,
 		int &FitPrecAmps,
 		int &NProfileTimePoly,
 		int &incProfileScatter,
-		int &ScatterPBF){
+		int &ScatterPBF,
+        double &redFreqScale){
 
 	//General parameters:
 	//Use GPUs 0=No, 1=Yes
@@ -415,6 +416,7 @@ void setupparams(char *ConfigFileName, int &useGPUS,
 	GroupNoiseAlphaPrior[1] = 7;
 
 
+    redFreqScale=1.0;
 
 	//GPTA Params
 	
@@ -495,6 +497,7 @@ void setupparams(char *ConfigFileName, int &useGPUS,
         parameters.readInto(numRedCoeff, "numRedCoeff", numRedCoeff);
 		parameters.readInto(numDMCoeff, "numDMCoeff", numDMCoeff);
         parameters.readInto(numRedPL, "numRedPL", numRedPL);
+        parameters.readInto(redFreqScale, "redFreqScale", redFreqScale);
 		parameters.readInto(numDMPL, "numDMPL", numDMPL);
         parameters.readInto(RedCoeffPrior[0], "RedCoeffPrior[0]", RedCoeffPrior[0]);
         parameters.readInto(RedCoeffPrior[1], "RedCoeffPrior[1]", RedCoeffPrior[1]);
@@ -761,7 +764,7 @@ void setTNPriors(char *ConfigFileName, double **Dpriors, long double **TempoPrio
 }
 
 
-void setFrequencies(char *ConfigFileName, double *SampleFreq, int numRedfreqs, int numDMfreqs, int numRedLogFreqs, int numDMLogFreqs, double RedLowFreq, double DMLowFreq, double RedMidFreq, double DMMidFreq){
+void setFrequencies(char *ConfigFileName, double *SampleFreq, int numRedfreqs, int numDMfreqs, int numRedLogFreqs, int numDMLogFreqs, double RedLowFreq, double DMLowFreq, double RedMidFreq, double DMMidFreq, double redFreqScale){
 
 //This function sets or overwrites the default values for the sampled frequencies sent to multinest
 
@@ -769,14 +772,14 @@ void setFrequencies(char *ConfigFileName, double *SampleFreq, int numRedfreqs, i
 	int startpoint=0;
 	double RedLogDiff = log10(RedMidFreq) - log10(RedLowFreq);
 	for(int i =0; i < numRedLogFreqs; i++){
-		SampleFreq[startpoint]=pow(10.0, log10(RedLowFreq) + i*RedLogDiff/numRedLogFreqs);
+		SampleFreq[startpoint]=redFreqScale*(pow(10.0, log10(RedLowFreq) + i*RedLogDiff/numRedLogFreqs));
 		startpoint++;
 		printf("%i %g %g \n", i, log10(RedLowFreq) - i*log10(RedLowFreq)/numRedLogFreqs, SampleFreq[startpoint-1]);
 		
 	}
 	
 	for(int i =0;i < numRedfreqs-numRedLogFreqs; i++){	
-		SampleFreq[startpoint]=i+RedMidFreq;
+		SampleFreq[startpoint]=(i+RedMidFreq)*redFreqScale;
 		startpoint++;
 		printf("making freqs %i %g\n", startpoint-1, SampleFreq[startpoint-1]);
 	

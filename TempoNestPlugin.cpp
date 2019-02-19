@@ -259,7 +259,7 @@ void SetNewAmps(Archive *archive){
 }
 #endif
 */
-MNStruct* init_struct(pulsar *pulseval,	 long double **LDpriorsval, int numberpulsarsval,int numFitJumpsval,int numFitTimingval, int systemcountval, int numFitEFACval, int numFitEQUADval, int numFitRedCoeffval, int numFitDMCoeffval,int numFitRedPLval, int numFitDMPLval, int **TempoFitNumsval,int *TempoJumpNumsval, int *sysFlagsval, int numdimsval, int incREDval, int incDMval, int incFloatDMval, int incFloatRedval, int DMFloatstartval, int RedFloatstartval, int TimeMarginVal, int JumpMarginVal, int doLinearVal, double *SampleFreqsVal, int incStepVal, char *whiteflagval, int whitemodelval, int varyRedCoeffval, int varyDMCoeffval, int yearlyDMval, int incsinusoidval, int EPolTermsval, int incGWBval,int RedPriorType,int DMPriorType,int EQUADPriorType,int EFACPriorType,int useOriginalErrors, int incShannonJitter, int incDMEvent, int incDMShapeEvent, int numDMShapeCoeff, int incBandNoise, int numFitBandNoiseCoeff, int incRedShapeEvent, int numRedShapeCoeff, int MarginRedShapeCoeff, int incDMScatterShapeEvent, int numDMScatterShapeCoeff, int incNGJitter, int incGlitch, int incGlitchTerms, int incBreakingIndex, int FitLowFreqCutoff, int uselongdouble, int incGroupNoise, int numFitGroupNoiseCoeff, int **FitForGroup, int numGroupstoFit, int *GroupNoiseFlags, int FitSolarWind, int FitWhiteSolarWind, int interpolateProfile, double InterpolatedTime, int sampler, int *GPTAnumstoccoeff, int totalshapestoccoeff, int StoreFMatrices, int incHighFreqStoc, int numNGJitter, int **FitForBand, int incProfileEvo, double EvoRefFreq, int *numEvoFitCoeff, int incWideBandNoise, int incProfileFit, int *numProfileFitCoeff, int incDMEQUAD, int FitLinearProfileWidth, double offPulseLevel, double **GroupStartTimes, int FitEvoExponent, int numProfComponents, int totalEvoFitCoeff, int totalProfileFitCoeff, int *numEvoCoeff, int totalEvoCoeff, int incWidthJitter, int JitterProfComp, int incProfileEnergyEvo, int debug, int ProfileBaselineTerms, int incProfileNoise, int ProfileNoiseCoeff, int SubIntToFit, int ChannelToFit, int NProfileEvoPoly, double *ProfCompSeps, int usecosiprior, double *PreJumpVals, char *rootName, int doMax, int incWidthEvoTime, int incExtraProfComp, int incPrecession, int incTimeCorrProfileNoise, int *numTimeCorrCoeff, int totalTimeCorrCoeff, double phasePriorExpansion, int ProfileNoiseMethod, int FitPrecAmps, char *GroupNoiseName, int NProfileTimePoly, int incProfileScatter, int ScatterPBF, int *FitCompWidths, int *FitCompPos, int NumFitCompWidths, int NumFitCompPos, int NumCompswithWidth, int NumCompswithPos)
+MNStruct* init_struct(pulsar *pulseval,	 long double **LDpriorsval, int numberpulsarsval,int numFitJumpsval,int numFitTimingval, int systemcountval, int numFitEFACval, int numFitEQUADval, int numFitRedCoeffval, int numFitDMCoeffval,int numFitRedPLval, int numFitDMPLval, int **TempoFitNumsval,int *TempoJumpNumsval, int *sysFlagsval, int numdimsval, int incREDval, int incDMval, int incFloatDMval, int incFloatRedval, int DMFloatstartval, int RedFloatstartval, int TimeMarginVal, int JumpMarginVal, int doLinearVal, double *SampleFreqsVal, int incStepVal, char *whiteflagval, int whitemodelval, int varyRedCoeffval, int varyDMCoeffval, int yearlyDMval, int incsinusoidval, int EPolTermsval, int incGWBval,int RedPriorType,int DMPriorType,int EQUADPriorType,int EFACPriorType,int useOriginalErrors, int incShannonJitter, int incDMEvent, int incDMShapeEvent, int numDMShapeCoeff, int incBandNoise, int numFitBandNoiseCoeff, int incRedShapeEvent, int numRedShapeCoeff, int MarginRedShapeCoeff, int incDMScatterShapeEvent, int numDMScatterShapeCoeff, int incNGJitter, int incGlitch, int incGlitchTerms, int incBreakingIndex, int FitLowFreqCutoff, int uselongdouble, int incGroupNoise, int numFitGroupNoiseCoeff, int **FitForGroup, int numGroupstoFit, int *GroupNoiseFlags, int FitSolarWind, int FitWhiteSolarWind, int interpolateProfile, double InterpolatedTime, int sampler, int *GPTAnumstoccoeff, int totalshapestoccoeff, int StoreFMatrices, int incHighFreqStoc, int numNGJitter, int **FitForBand, int incProfileEvo, double EvoRefFreq, int *numEvoFitCoeff, int incWideBandNoise, int incProfileFit, int *numProfileFitCoeff, int incDMEQUAD, int FitLinearProfileWidth, double offPulseLevel, double **GroupStartTimes, int FitEvoExponent, int numProfComponents, int totalEvoFitCoeff, int totalProfileFitCoeff, int *numEvoCoeff, int totalEvoCoeff, int incWidthJitter, int JitterProfComp, int incProfileEnergyEvo, int debug, int ProfileBaselineTerms, int incProfileNoise, int ProfileNoiseCoeff, int SubIntToFit, int ChannelToFit, int NProfileEvoPoly, double *ProfCompSeps, int usecosiprior, double *PreJumpVals, char *rootName, int doMax, int incWidthEvoTime, int incExtraProfComp, int incPrecession, int incTimeCorrProfileNoise, int *numTimeCorrCoeff, int totalTimeCorrCoeff, double phasePriorExpansion, int ProfileNoiseMethod, int FitPrecAmps, char *GroupNoiseName, int NProfileTimePoly, int incProfileScatter, int ScatterPBF, int *FitCompWidths, int *FitCompPos, int NumFitCompWidths, int NumFitCompPos, int NumCompswithWidth, int NumCompswithPos, double redFreqScale)
 {
     MNStruct* MNS = (MNStruct*)malloc(sizeof(MNStruct));
 
@@ -280,6 +280,7 @@ MNStruct* init_struct(pulsar *pulseval,	 long double **LDpriorsval, int numberpu
 	MNS->sysFlags=sysFlagsval;
 	MNS->numdims=numdimsval;
 	MNS->incRED=incREDval;
+    MNS->redFreqScale=redFreqScale;
 	MNS->incDM=incDMval;
 	MNS->incFloatRed=incFloatRedval;
 	MNS->incFloatDM=incFloatDMval;
@@ -1849,7 +1850,9 @@ extern "C" int graphicalInterface(int argc, char **argv,
 	int incProfileScatter = 0;
 	int ScatterPBF = 0;
 
-	setupparams(ConfigFileName, useGPUS, Type, numTempo2its, doLinearFit, doMax, incEFAC, numEPolTerms, incEQUAD, incRED, incDM, doTimeMargin, doJumpMargin, FitSig, customPriors, EFACPrior, EPolPrior, EQUADPrior, AlphaPrior, AmpPrior, DMAlphaPrior, DMAmpPrior, numRedCoeff, numDMCoeff, numRedPL, numDMPL, RedCoeffPrior, DMCoeffPrior, incFloatDM, DMFreqPrior, yearlyDM, incsinusoid, incFloatRed, RedFreqPrior, FourierSig, numStep, StepAmpPrior, WhiteName,whitemodel, varyRedCoeff, varyDMCoeff, incGWB, GWBAmpPrior, RedPriorType, DMPriorType, EQUADPriorType, EFACPriorType, useOriginalErrors, incShannonJitter, incDMEvent, DMEventStartPrior, DMEventLengthPrior,incDMShapeEvent, numDMShapeCoeff, DMShapeCoeffPrior, incRedShapeEvent, numRedShapeCoeff, MarginRedShapeCoeff, RedShapeCoeffPrior, incDMScatterShapeEvent, numDMScatterShapeCoeff, DMScatterShapeCoeffPrior,incBandNoise, numBandNoiseCoeff, BandNoiseAmpPrior, BandNoiseAlphaPrior, incNGJitter, incGlitch, incGlitchTerms, GlitchFitSig, incBreakingIndex, FitLowFreqCutoff, uselongdouble, incGroupNoise, numGroupCoeff, GroupNoiseAmpPrior, GroupNoiseAlphaPrior, FitSolarWind, FitWhiteSolarWind, SolarWindPrior, WhiteSolarWindPrior,  GPTA,  GroupNoiseName, FixProfile, FitTemplate, interpolateProfile, InterpolatedTime, StoreFMatrices, incHighFreqStoc, HighFreqStocPrior, incProfileEvo, EvoRefFreq, ProfileEvoPrior, FitEvoExponent, incWideBandNoise, incProfileFit, ProfileFitPrior, FitLinearProfileWidth, LinearProfileWidthPrior, incDMEQUAD, DMEQUADPrior, offPulseLevel,ProfFile,numProfComponents,incWidthJitter,WidthJitterPrior,JitterProfComp,incProfileEnergyEvo,ProfileEnergyEvoPrior, debug, ProfileBaselineTerms, incProfileNoise, ProfileNoiseCoeff, ProfileNoiseAmpPrior, ProfileNoiseSpecPrior, SubIntToFit, ChannelToFit, NProfileEvoPoly, usecosiprior, incWidthEvoTime, incExtraProfComp, removeBaseline, incPrecession, incTimeCorrProfileNoise, phasePriorExpansion, ProfileNoiseMethod, FitPrecAmps, NProfileTimePoly, incProfileScatter, ScatterPBF); 
+    double redFreqScale=1;
+
+	setupparams(ConfigFileName, useGPUS, Type, numTempo2its, doLinearFit, doMax, incEFAC, numEPolTerms, incEQUAD, incRED, incDM, doTimeMargin, doJumpMargin, FitSig, customPriors, EFACPrior, EPolPrior, EQUADPrior, AlphaPrior, AmpPrior, DMAlphaPrior, DMAmpPrior, numRedCoeff, numDMCoeff, numRedPL, numDMPL, RedCoeffPrior, DMCoeffPrior, incFloatDM, DMFreqPrior, yearlyDM, incsinusoid, incFloatRed, RedFreqPrior, FourierSig, numStep, StepAmpPrior, WhiteName,whitemodel, varyRedCoeff, varyDMCoeff, incGWB, GWBAmpPrior, RedPriorType, DMPriorType, EQUADPriorType, EFACPriorType, useOriginalErrors, incShannonJitter, incDMEvent, DMEventStartPrior, DMEventLengthPrior,incDMShapeEvent, numDMShapeCoeff, DMShapeCoeffPrior, incRedShapeEvent, numRedShapeCoeff, MarginRedShapeCoeff, RedShapeCoeffPrior, incDMScatterShapeEvent, numDMScatterShapeCoeff, DMScatterShapeCoeffPrior,incBandNoise, numBandNoiseCoeff, BandNoiseAmpPrior, BandNoiseAlphaPrior, incNGJitter, incGlitch, incGlitchTerms, GlitchFitSig, incBreakingIndex, FitLowFreqCutoff, uselongdouble, incGroupNoise, numGroupCoeff, GroupNoiseAmpPrior, GroupNoiseAlphaPrior, FitSolarWind, FitWhiteSolarWind, SolarWindPrior, WhiteSolarWindPrior,  GPTA,  GroupNoiseName, FixProfile, FitTemplate, interpolateProfile, InterpolatedTime, StoreFMatrices, incHighFreqStoc, HighFreqStocPrior, incProfileEvo, EvoRefFreq, ProfileEvoPrior, FitEvoExponent, incWideBandNoise, incProfileFit, ProfileFitPrior, FitLinearProfileWidth, LinearProfileWidthPrior, incDMEQUAD, DMEQUADPrior, offPulseLevel,ProfFile,numProfComponents,incWidthJitter,WidthJitterPrior,JitterProfComp,incProfileEnergyEvo,ProfileEnergyEvoPrior, debug, ProfileBaselineTerms, incProfileNoise, ProfileNoiseCoeff, ProfileNoiseAmpPrior, ProfileNoiseSpecPrior, SubIntToFit, ChannelToFit, NProfileEvoPoly, usecosiprior, incWidthEvoTime, incExtraProfComp, removeBaseline, incPrecession, incTimeCorrProfileNoise, phasePriorExpansion, ProfileNoiseMethod, FitPrecAmps, NProfileTimePoly, incProfileScatter, ScatterPBF,redFreqScale); 
 
 	printf("PEP %g \n", phasePriorExpansion);
 
@@ -2000,60 +2003,66 @@ extern "C" int graphicalInterface(int argc, char **argv,
 
 
 
+               double maxtspan=1*(end-start);
 
-
-        double maxtspan=1*(end-start);
-
-	if(maxtspan < 1){
-		maxtspan = maxtspan*24*60;
-		printf("Assume less than a day, Tspan is now in minutes\n");
-	}
+        if(maxtspan < 1){
+            maxtspan = maxtspan*24*60;
+            printf("Assume less than a day, Tspan is now in minutes\n");
+        }
 
         int mindays =int(floor(1+2*maxtspan/psr[0].nobs));
         int mincoeff = int(floor(1+maxtspan/mindays));
 
         int Reddaysincoeffs=int(floor(maxtspan/numRedCoeff));
-	int DMdaysincoeffs=int(floor(maxtspan/numDMCoeff));
-	int BandDMdaysincoeffs=int(floor(maxtspan/numBandNoiseCoeff));
-	int Groupdaysincoeffs=int(floor(maxtspan/numGroupCoeff));
+        int DMdaysincoeffs=int(floor(maxtspan/numDMCoeff));
+        int BandDMdaysincoeffs=int(floor(maxtspan/numBandNoiseCoeff));
+        int Groupdaysincoeffs=int(floor(maxtspan/numGroupCoeff));
+        /****
+         * MJK Feb 2019. 
+         * The logic here makes no sense to me at all in the original
+         * LL version of the code.
+         * Removing this section ensures it will obey the requested number of coeficients.
+         */
 
-        if(numRedCoeff < mindays){
-                numRedCoeff=mincoeff;
-		if(FitLowFreqCutoff  > 0){
-			numRedCoeff=mincoeff+10;//int(Reddaysincoeffs);
-		}
-        }
-        else{
-                numRedCoeff=int(Reddaysincoeffs);//Reddaysincoeffs;
-        }
+        //if(numRedCoeff < mindays){
+        //    numRedCoeff=mincoeff;
+        //    if(FitLowFreqCutoff  > 0){
+        //        numRedCoeff=mincoeff+10;//int(Reddaysincoeffs);
+        //    }
+        //}
+        //else{
+        //    numRedCoeff=int(Reddaysincoeffs);//Reddaysincoeffs;
+        //}
 
         if(numDMCoeff < mindays){
-                numDMCoeff=mincoeff;
+            numDMCoeff=mincoeff;
         }
         else{
-                numDMCoeff=int(DMdaysincoeffs);//DMdaysincoeffs;
+            numDMCoeff=int(DMdaysincoeffs);//DMdaysincoeffs;
         }
 
         if(numBandNoiseCoeff < mindays){
-                numBandNoiseCoeff=mincoeff;
+            numBandNoiseCoeff=mincoeff;
         }
         else{
-                numBandNoiseCoeff=int(BandDMdaysincoeffs);//DMdaysincoeffs;
+            numBandNoiseCoeff=int(BandDMdaysincoeffs);//DMdaysincoeffs;
         }
 
         if(numGroupCoeff < mindays){
-                numGroupCoeff=mincoeff;
+            numGroupCoeff=mincoeff;
         }
         else{
-                numGroupCoeff=int(Groupdaysincoeffs);//DMdaysincoeffs;
+            numGroupCoeff=int(Groupdaysincoeffs);//DMdaysincoeffs;
         }
 
 
-	if(incRED == 0 && incGWB == 0)numRedCoeff=0;
-	if(incDM == 0)numDMCoeff=0;	
-	SampleFreq=new double[int(numRedCoeff+numDMCoeff)];
-	setFrequencies(ConfigFileName, SampleFreq,numRedCoeff, numDMCoeff, 0, 0, 1, 1, 1, 1);
-	
+        if(incRED == 0 && incGWB == 0)numRedCoeff=0;
+        if(incDM == 0)numDMCoeff=0;	
+        SampleFreq=new double[int(numRedCoeff+numDMCoeff)];
+
+        // redFreqScale allows scaling of the frequency channels.
+        setFrequencies(ConfigFileName, SampleFreq,numRedCoeff, numDMCoeff, 0, 0, 1, 1, 1, 1, redFreqScale);
+
 
 
 
@@ -2709,7 +2718,8 @@ extern "C" int graphicalInterface(int argc, char **argv,
 	int resume = 1;					// resume from a previous job?
 	int outfile = 1;				// write output files?
 	int initMPI = 1;				// initialize MPI routines?, relevant only if compiling with MPI set it to F if you want your main program to handle MPI initialization
-	double logZero = -DBL_MAX;			// points with loglike < logZero will be ignored by MultiNest
+    // MJK2019, I changed this to -9e-19 since temponest uses -1e-20 to indicate error cases.
+	double logZero = -9e-19;			// points with loglike < logZero will be ignored by MultiNest
 	int maxiter = 0;				// max no. of iterations, a non-positive value means infinity. MultiNest will terminate if either it has done max no. of iterations or convergence criterion (defined through tol) has been satisfied
 	void *context = 0;				// not required by MultiNest, any additional information user wants to pass
 	//printf("Here \n");
@@ -2721,7 +2731,7 @@ extern "C" int graphicalInterface(int argc, char **argv,
 	char *chartroot = new char[longname.length() + 1];
         std::strcpy(chartroot , longname.c_str());
 
-	MNStruct *MNS = init_struct(psr,TempoPriors,npsr,numFitJumps,fitcount,systemcount,numEFAC,numEQUAD, int(numRedCoeff), int(numDMCoeff), numRedPL, numDMPL, TempoFitNums,TempoJumpNums,numFlags, ndims, incRED,incDM, incFloatDM,incFloatRed, FloatDMstart, FloatRedstart, doTimeMargin,doJumpMargin, doLinearFit, SampleFreq, numStep, wflag, whitemodel,varyRedCoeff, varyDMCoeff,yearlyDM, incsinusoid, numEPolTerms, incGWB,RedPriorType, DMPriorType, EQUADPriorType,EFACPriorType,useOriginalErrors,numSQUAD, incDMEvent, incDMShapeEvent, numDMShapeCoeff, incBandNoise, numBandNoiseCoeff, incRedShapeEvent, numRedShapeCoeff, MarginRedShapeCoeff, incDMScatterShapeEvent, numDMScatterShapeCoeff, incNGJitter, incGlitch, incGlitchTerms, incBreakingIndex, FitLowFreqCutoff, uselongdouble, incGroupNoise, numGroupCoeff, FitForGroup, numGroupstoFit,GroupNoiseSys, FitSolarWind, FitWhiteSolarWind, interpolateProfile, InterpolatedTime, sampler, GPTAnumstocshapecoeff, totalshapestoccoeff, StoreFMatrices, incHighFreqStoc, numNGJitter, FitForBand, incProfileEvo, EvoRefFreq, numEvoFitCoeff, incWideBandNoise, incProfileFit, numProfileFitCoeff, incDMEQUAD, FitLinearProfileWidth, offPulseLevel,GroupStartTimes, FitEvoExponent,numProfComponents, totalEvoFitCoeff, totalProfileFitCoeff, numEvoCoeff, totalEvoCoeff,incWidthJitter, JitterProfComp, incProfileEnergyEvo, debug, ProfileBaselineTerms, incProfileNoise, ProfileNoiseCoeff, SubIntToFit, ChannelToFit, NProfileEvoPoly, ProfCompSeps,usecosiprior, PreJumpVals, chartroot, doMax, incWidthEvoTime, incExtraProfComp, incPrecession, incTimeCorrProfileNoise, numTimeCorrCoeff, totalTimeCorrCoeff, phasePriorExpansion, ProfileNoiseMethod, FitPrecAmps, GroupNoiseName, NProfileTimePoly, incProfileScatter, ScatterPBF, FitCompWidths, FitCompPos, NumFitCompWidths, NumFitCompPos, NumCompswithWidth, NumCompswithPos);
+	MNStruct *MNS = init_struct(psr,TempoPriors,npsr,numFitJumps,fitcount,systemcount,numEFAC,numEQUAD, int(numRedCoeff), int(numDMCoeff), numRedPL, numDMPL, TempoFitNums,TempoJumpNums,numFlags, ndims, incRED,incDM, incFloatDM,incFloatRed, FloatDMstart, FloatRedstart, doTimeMargin,doJumpMargin, doLinearFit, SampleFreq, numStep, wflag, whitemodel,varyRedCoeff, varyDMCoeff,yearlyDM, incsinusoid, numEPolTerms, incGWB,RedPriorType, DMPriorType, EQUADPriorType,EFACPriorType,useOriginalErrors,numSQUAD, incDMEvent, incDMShapeEvent, numDMShapeCoeff, incBandNoise, numBandNoiseCoeff, incRedShapeEvent, numRedShapeCoeff, MarginRedShapeCoeff, incDMScatterShapeEvent, numDMScatterShapeCoeff, incNGJitter, incGlitch, incGlitchTerms, incBreakingIndex, FitLowFreqCutoff, uselongdouble, incGroupNoise, numGroupCoeff, FitForGroup, numGroupstoFit,GroupNoiseSys, FitSolarWind, FitWhiteSolarWind, interpolateProfile, InterpolatedTime, sampler, GPTAnumstocshapecoeff, totalshapestoccoeff, StoreFMatrices, incHighFreqStoc, numNGJitter, FitForBand, incProfileEvo, EvoRefFreq, numEvoFitCoeff, incWideBandNoise, incProfileFit, numProfileFitCoeff, incDMEQUAD, FitLinearProfileWidth, offPulseLevel,GroupStartTimes, FitEvoExponent,numProfComponents, totalEvoFitCoeff, totalProfileFitCoeff, numEvoCoeff, totalEvoCoeff,incWidthJitter, JitterProfComp, incProfileEnergyEvo, debug, ProfileBaselineTerms, incProfileNoise, ProfileNoiseCoeff, SubIntToFit, ChannelToFit, NProfileEvoPoly, ProfCompSeps,usecosiprior, PreJumpVals, chartroot, doMax, incWidthEvoTime, incExtraProfComp, incPrecession, incTimeCorrProfileNoise, numTimeCorrCoeff, totalTimeCorrCoeff, phasePriorExpansion, ProfileNoiseMethod, FitPrecAmps, GroupNoiseName, NProfileTimePoly, incProfileScatter, ScatterPBF, FitCompWidths, FitCompPos, NumFitCompWidths, NumFitCompPos, NumCompswithWidth, NumCompswithPos,redFreqScale);
 	
 	MNS->includeEQsys = includeEQsys;	
 

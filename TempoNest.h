@@ -64,6 +64,7 @@ typedef struct {
 	double *sampleFreq;
 	int numdims;
 	int incRED;
+    double redFreqScale;
 	int incDM;
 	int incFloatDM;
 	int incFloatRed;
@@ -499,10 +500,11 @@ void setupparams(char *ConfigFileName, int &useGPUS,
 		int &FitPrecAmps,
 		int &NProfileTimePoly,
 		int &incProfileScatter,
-		int &ScatterPBF);
+		int &ScatterPBF,
+        double &redFreqScale);
 
 void setTNPriors(char *ConfigFileName, double **Dpriors, long double **TempoPriors, int TPsize, int DPsize);
-void setFrequencies(char *ConfigFileName, double *SampleFreq, int numRedfreqs, int numDMfreqs, int numRedLogFreqs, int numDMLogFreqs, double RedLowFreq, double DMLowFreq, double RedMidFreq, double DMMidFreq);
+void setFrequencies(char *ConfigFileName, double *SampleFreq, int numRedfreqs, int numDMfreqs, int numRedLogFreqs, int numDMLogFreqs, double RedLowFreq, double DMLowFreq, double RedMidFreq, double DMMidFreq, double redFreqScale);
 void GetGroupsToFit(char *ConfigFileName, int incGroupNoise, int **FitForGroup, int incBandNoise, int **FitForBand);
 void setShapePriors(char *ConfigFileName, double **ShapePriors, double **BetaPrior, int numcoeff, int numcomps);
 void GetProfileFitInfo(char *ConfigFileName, int numProfComponents, int *numGPTAshapecoeff, int *numProfileFitCoeff, int *numEvoCoeff, int *numFitEvoCoeff, 	int *numGPTAstocshapecoeff, double *ProfCompSeps, double &TemplateChanWidth, int *TimeCorrShapeCoeff, int incExtraComp,  double **FitForExtraComp, int *FitCompWidths, int *FitCompPos);

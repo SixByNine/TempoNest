@@ -1439,6 +1439,9 @@ void TNtextOutput(pulsar *psr, int npsr, int newpar, long double *Tempo2Fit, voi
 		whitefitcount++;
 		fprintf(fout2, "TNRedGam %g\n", paramarray[whitefitcount][2]);
 		fprintf(fout2, "TNRedC %i\n", ((MNStruct *)context)->numFitRedCoeff);
+        if(((MNStruct *)context)->redFreqScale != 1) {
+            fprintf(fout2, "TNRedFLow %lg\n", log10(((MNStruct *)context)->redFreqScale));
+        }
 		tablefile <<  "Red Index \\dotfill & "<< paramarray[whitefitcount][0] <<" $\\pm$ "<< paramarray[whitefitcount][1] <<"  \\\\ \n";	
 		whitefitcount++;
 //		printf("end of Red3 parms\n");
