@@ -2718,8 +2718,8 @@ extern "C" int graphicalInterface(int argc, char **argv,
 	int resume = 1;					// resume from a previous job?
 	int outfile = 1;				// write output files?
 	int initMPI = 1;				// initialize MPI routines?, relevant only if compiling with MPI set it to F if you want your main program to handle MPI initialization
-    // MJK2019, I changed this to -9e-19 since temponest uses -1e-20 to indicate error cases.
-	double logZero = -9e-19;			// points with loglike < logZero will be ignored by MultiNest
+    // MJK2019, I changed this to -9e19 since temponest uses -1e20 to indicate error cases.
+	double logZero = -9e19;			// points with loglike < logZero will be ignored by MultiNest
 	int maxiter = 0;				// max no. of iterations, a non-positive value means infinity. MultiNest will terminate if either it has done max no. of iterations or convergence criterion (defined through tol) has been satisfied
 	void *context = 0;				// not required by MultiNest, any additional information user wants to pass
 	//printf("Here \n");
