@@ -2602,6 +2602,8 @@ extern "C" int graphicalInterface(int argc, char **argv,
                         case param_px:
                         case param_pmra:
                         case param_pmdec:
+                        case param_glf0d:
+                        case param_gltd:
                             // full fit
                             break;
 
