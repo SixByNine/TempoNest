@@ -2067,9 +2067,9 @@ extern "C" int graphicalInterface(int argc, char **argv,
 
 
         if(doTimeMargin == 3){
-            // special MKEITH good stuff to do glf0d
-            for (int i = 0; i < psr[0].param[param_glf0d].aSize; ++i) {
-                psr[0].param[param_glf0d].fitFlag[i]=0;
+            // special MKEITH good stuff to do gltd
+            for (int i = 0; i < psr[0].param[param_gltd].aSize; ++i) {
+                psr[0].param[param_gltd].fitFlag[i]=0;
             }
         }
 
@@ -2177,10 +2177,10 @@ extern "C" int graphicalInterface(int argc, char **argv,
 
  
   if(doTimeMargin == 3){
-      // special MKEITH good stuff to do glf0d
-      for (int i = 0; i < psr[0].param[param_glf0d].aSize; ++i) {
-          if (psr[0].param[param_glf0d].paramSet[i]) {
-              psr[0].param[param_glf0d].fitFlag[i]=1;
+      // special MKEITH good stuff to do gltd
+      for (int i = 0; i < psr[0].param[param_gltd].aSize; ++i) {
+          if (psr[0].param[param_gltd].paramSet[i]) {
+              psr[0].param[param_gltd].fitFlag[i]=1;
           }
       }
   }
@@ -2616,13 +2616,13 @@ extern "C" int graphicalInterface(int argc, char **argv,
                             }
                             break;
 
-                        case param_glf0d:
+                        case param_gltd:
                             // do a full fit, but fiddle the priors
                             TempoPriors[paramsfitted][0]= 1000;
                             TempoPriors[paramsfitted][1]=psr[0].param[p].err[k]=1000;
-                            Tempo2Fit[paramsfitted]=1000;
+                            Tempo2Fit[paramsfitted]=psr[0].param[p].prefit[k];
                             break;
-                        case param_gltd:
+                        case param_glf0d:
                         case param_brake:
                         case param_px:
                         case param_pmra:
