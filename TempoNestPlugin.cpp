@@ -2619,7 +2619,7 @@ extern "C" int graphicalInterface(int argc, char **argv,
                         case param_gltd:
                             // do a full fit, but fiddle the priors
                             TempoPriors[paramsfitted][0]= 1000;
-                            TempoPriors[paramsfitted][1]=psr[0].param[p].err[k]=1000;
+                            TempoPriors[paramsfitted][1]=psr[0].param[p].err[k]=1000/FitSig;
                             Tempo2Fit[paramsfitted]=psr[0].param[p].prefit[k];
                             break;
                         case param_glf0d:
