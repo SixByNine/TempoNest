@@ -2066,6 +2066,13 @@ extern "C" int graphicalInterface(int argc, char **argv,
 
 
 
+        if(doTimeMargin == 3){
+            // special MKEITH good stuff to do glf0d
+            for (int i = 0; i < psr[0].param[param_glf0d].aSize; ++i) {
+                psr[0].param[param_glf0d].fitFlag[i]=0;
+            }
+        }
+
 
 
   printf("Num T2 its %i \n", numTempo2its);
@@ -2085,6 +2092,7 @@ extern "C" int graphicalInterface(int argc, char **argv,
 		}
 	    }
 	}
+
       //      long seed = TKsetSeed();
       for (iteration=0;iteration<2;iteration++) /* Do pre- and post- fit analysis */
 	{
@@ -2095,8 +2103,7 @@ extern "C" int graphicalInterface(int argc, char **argv,
 	  logdbg("calling formResiduals");
 	  formResiduals(psr,npsr,1);       /* Form residuals */
 
-	  
-
+	 
 
 	  if (listparms==1 && iteration==0)displayParameters(13,timFile,parFile,psr,npsr); /* List out all the parameters */  
 	  if (iteration==0)          /* Only fit to pre-fit residuals */
@@ -2167,6 +2174,16 @@ extern "C" int graphicalInterface(int argc, char **argv,
 	  /*	  printf("Next iteration\n");*/
 	}
     }
+
+ 
+  if(doTimeMargin == 3){
+      // special MKEITH good stuff to do glf0d
+      for (int i = 0; i < psr[0].param[param_glf0d].aSize; ++i) {
+          if (psr[0].param[param_glf0d].paramSet[i]) {
+              psr[0].param[param_glf0d].fitFlag[i]=1;
+          }
+      }
+  }
 
 
 	
@@ -2598,12 +2615,18 @@ extern "C" int graphicalInterface(int argc, char **argv,
                                 TempoPriors[paramsfitted][2]=1;
                             }
                             break;
+
+                        case param_glf0d:
+                            // do a full fit, but fiddle the priors
+                            TempoPriors[paramsfitted][0]= 1000;
+                            TempoPriors[paramsfitted][1]=psr[0].param[p].err[k]=1000;
+                            Tempo2Fit[paramsfitted]=1000;
+                            break;
+                        case param_gltd:
                         case param_brake:
                         case param_px:
                         case param_pmra:
                         case param_pmdec:
-                        case param_glf0d:
-                        case param_gltd:
                             // full fit
                             break;
 
